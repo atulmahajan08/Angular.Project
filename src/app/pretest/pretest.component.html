@@ -1,0 +1,36 @@
+<form #pretest="ngForm" novalidate (ngSubmit)="submit(pretest.value)">
+  <div class="form-group">
+    <div class="form-check"> <br>
+      <h5 class="h5" style="color: rgb(40, 80, 80); font-style: bold" > The Angular and TypeScript online test assesses candidates' knowledge of
+        Angular front-end web framework and programming in the TypeScript language. </h5><br>
+        <h5 class="h5" style="color: darkslategray">  This online test requires candidates answer questions about the Angular front-end web framework. </h5><br>
+      <div class="card" style="width: 100%">
+        <div class="card-body" style="background-color: #e3ebea;  ">
+
+
+          <h5 style="color: rgb(104, 125, 248);">1) Angular is for:</h5>
+          <div class="container " style="margin-left: 25px">
+          <input type="radio" name="answer" class="form-check-input" value="spa" [(ngModel)]="answer" />SPA<br>
+          <input type="radio" name="answer" class="form-check-input" value="formvalidation" [(ngModel)]="answer" />Form Validation <br>
+          <input type="radio" name="answer" class="form-check-input" value="All" [(ngModel)]="answer" />ALL <br>
+           </div>   
+
+          <h5 style="color: rgb(78, 104, 247)">2) Angular's backend language is:</h5>
+          <div class="container " style="margin-left: 25px">
+          <input type="radio" name="answer1" class="form-check-input" value="TypeScript"
+            [(ngModel)]="answer1" />TypeScript<br>
+          <input type="radio" name="answer1" class="form-check-input" value="Javascript"
+            [(ngModel)]="answer1" />Javascript <br>
+          <input type="radio" name="answer1" class="form-check-input" value="NodeJS" [(ngModel)]="answer1" />Node JS
+          </div>
+          <br><br>
+          <div class="wrapper"><button type="submit" class="btn btn-outline-success" >Submit</button>
+          </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+<p class="p">My score is {{result}}</p>

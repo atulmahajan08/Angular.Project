@@ -1,0 +1,78 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <br>
+  <h5 class="h5" style="color: grey">Registration Timeline </h5>
+  <br>
+  <h4 class="h4">ISD students register online, generally two to three months prior to the start of each semester.<br>
+    <br>
+    Winter:  registration opens in October; classes begin in January.<br>
+    Spring/summer: registration opens in February; classes begin in May.</h4>
+  <h4 class="h4" style="text-align: center"> Registration Form</h4>
+  <div class="card">
+    <div class="card-body" style="background-color: rgb(244, 246, 247);">
+      <form [formGroup]="angForm" novalidate (ngSubmit)="submit(angForm.value)">
+        <div class="form-group">
+          <label>Name:</label>
+          <input class="form-control" formControlName="name" type="text">
+        </div>
+
+        <div
+          *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="angForm.controls['name'].errors.required">
+            Name is required.
+          </div>
+          <div *ngIf="angForm.controls['name'].errors.maxlength || angForm.controls['name'].errors.minlength">
+            Name should be more than 6 characters
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Email:</label>
+          <input class="form-control" formControlName="email" type="text">
+        </div>
+
+        <div
+          *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="angForm.controls['email'].errors.required">
+            Email is required.
+          </div>
+          <div *ngIf="angForm.controls['email'].errors.email">
+            Email is not valid.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label> Gender: </label>
+          Male<input type="radio" formControlName="gender" value="Male">
+          Female<input type="radio" formControlName="gender" value="Female">
+        </div>
+
+        <div class="form-group">
+          <label>Designation :</label>
+          <select class="form-control" formControlName="Designation">
+            <option value="Web Designer">Web Designer</option>
+            <option value="Web Developer">Web Developer</option>
+            <option value="Manager">Manager</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Remarks :</label>
+          <textarea class="form-control" formControlName="Remarks" cols="30" row="5"></textarea>
+        </div>
+        <button type="submit" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-success">
+          Save
+        </button>
+      </form>
+    </div>
+  </div>
+  <br />
+  <p>Form Value: {{angForm.value | json}}</p>
+  <p>Form Status: {{angForm.status | json}}</p>
+
+  <p>Form Value: {{value | json}}</p>
+
+</div>
+<router-outlet></router-outlet>
